@@ -1,0 +1,5 @@
+{
+  "name": "TriFlow Video Player",
+  "description": "A vertical video player that displays 3 videos simultaneously, rotates them 90 degrees, and auto-advances in batches. Features swipe-up to delete functionality.",
+  "requestFramePermissions": []
+}

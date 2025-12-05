@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:padding="1dp">
+
+    <!-- 
+      PlayerView 容器 
+      高度将在代码中动态设置为屏幕高度的 1/3
+    -->
+    <FrameLayout
+        android:id="@+id/videoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" 
+        android:background="#111111">
+        
+        <!-- 视频播放器 View -->
+        <!-- 注意：rotation="90" 会导致布局宽高逻辑颠倒，
+             通常在原生开发中，更建议旋转 TextureView，但这里直接旋转容器简单粗暴 -->
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rotation="90"
+            app:resize_mode="fixed_width" 
+            app:use_controller="false"
+            app:shutter_background_color="#000000"/>
+            
+        <TextView
+            android:id="@+id/videoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:background="#88000000"
+            android:padding="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:layout_margin="8dp"/>
+            
+    </FrameLayout>
+    
+    <!-- 删除背景层 (滑动时显示) -->
+    <FrameLayout
+        android:id="@+id/deleteBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88FF0000"
+        android:visibility="invisible">
+        <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="删除"
+             android:textSize="20sp"
+             android:textStyle="bold"
+             android:textColor="#FFFFFF"
+             android:layout_gravity="center_vertical|start"
+             android:layout_marginStart="24dp"/>
+    </FrameLayout>
+
+</FrameLayout>
